@@ -1,0 +1,23 @@
+/* Opening intro video (home page only). Starts on mouse move / tap. */
+#tsk-intro{position:fixed;inset:0;z-index:99999;background:radial-gradient(ellipse 70% 80% at 50% 48%,#0d1b3a,#050b1a 72%);
+  transition:opacity .9s ease,visibility .9s;overscroll-behavior:contain}
+#tsk-intro.done{opacity:0;visibility:hidden;pointer-events:none}
+#tsk-intro video,#tsk-intro .poster{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+#tsk-intro video{opacity:0;transition:opacity .35s}
+#tsk-intro.playing video{opacity:1}
+#tsk-intro .poster{transition:opacity .6s ease;filter:brightness(.8)}
+#tsk-intro.playing .poster{opacity:0}
+#tsk-intro .hint{position:absolute;left:0;right:0;bottom:9vh;text-align:center;color:#f3dc9c;
+  font:500 13px/1 Inter,system-ui,-apple-system,"Segoe UI",sans-serif;letter-spacing:.42em;text-transform:uppercase;
+  transition:opacity .5s;animation:tskPulse 2.2s ease-in-out infinite}
+#tsk-intro.playing .hint{opacity:0;animation:none}
+@keyframes tskPulse{50%{opacity:.35}}
+#tsk-intro button{position:absolute;z-index:2;background:rgba(5,11,26,.55);color:#f3dc9c;border:1px solid rgba(214,173,96,.55);
+  padding:10px 18px;border-radius:999px;font:500 12px Inter,system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;
+  cursor:pointer;-webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);transition:background .2s,color .2s}
+#tsk-intro button:hover,#tsk-intro button:focus-visible{background:#d6ad60;color:#050b1a;outline:none}
+#tsk-skip{right:24px;top:24px}
+#tsk-snd{left:24px;top:24px;display:none}
+#tsk-intro.playing #tsk-snd.show{display:block}
+html.tsk-lock{overflow:hidden}
+@media (prefers-reduced-motion:reduce){#tsk-intro .hint{animation:none}}
