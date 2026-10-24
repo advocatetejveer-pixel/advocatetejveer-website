@@ -14,6 +14,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/intro.css">
+<noscript><style>#tsk-intro{display:none!important}</style></noscript>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -37,6 +39,19 @@
 </script>
 </head>
 <body>
+
+<!-- Opening intro video: starts on mouse move (tap on phones). Plays once per visit. Remove this block, css/intro.css and js/intro.js to take it out. -->
+<div id="tsk-intro" role="dialog" aria-label="Introduction video">
+  <img class="poster" alt="" src="assets/intro-poster.jpg">
+  <video id="tsk-video" playsinline preload="auto" disablepictureinpicture>
+    <source src="assets/intro.mp4" type="video/mp4">
+  </video>
+  <div class="hint">Move your mouse to begin</div>
+  <button id="tsk-snd" type="button" aria-label="Turn sound on">Sound on</button>
+  <button id="tsk-skip" type="button">Skip intro</button>
+</div>
+<script src="js/intro.js"></script>
+
 
 <header class="site-header">
   <nav class="nav">
