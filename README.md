@@ -11,7 +11,7 @@ brass/gold accent. Subtle scroll-reveal and hover animations throughout —
 restrained, not flashy.
 
 ## Pages
-- `index.html` — Home (hero, intro with photo, practice areas, why-choose)
+- `index.html` — Home (intro video, hero, partner-logo strip, intro with photo, practice areas, why-choose)
 - `about.html` — About / bio / practice details
 - `services.html` — Detailed breakdown of all 7 practice areas
 - `contact.html` — Phone, email, address, Google Map embed, contact form
@@ -70,3 +70,8 @@ No placeholder testimonials or invented credentials are included — only
 information that was explicitly provided. Add a bar enrollment number,
 client testimonials, or further credentials whenever you'd like them
 reflected on the site.
+
+## Partner logos
+Single-tone ink PNGs live in `assets/clients/`. The scrolling strip is in `index.html`
+(`.partners`) and styled at the end of `css/style.css`. To add a logo, add an `<li>` to each of
+the four groups in the strip (the extra groups are copies that make the loop seamless).
