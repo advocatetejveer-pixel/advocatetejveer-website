@@ -599,3 +599,64 @@ p{ margin:0; }
   *{ scroll-behavior: auto !important; transition: none !important; animation: none !important; }
   .reveal, .hero-anim{ opacity:1 !important; transform:none !important; }
 }
+
+/* ============================================================
+   Partner logos — scrolling strip (home page)
+   Logos are single-tone ink PNGs so the set reads as one family.
+   ============================================================ */
+.partners{
+  padding: 64px 0 56px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background: var(--bg);
+}
+.partners-head{ text-align:center; margin-bottom: 30px; }
+.partners-head h2{ font-size: 30px; margin-top: 12px; }
+
+.marquee{
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+          mask-image: linear-gradient(90deg, transparent 0, #000 9%, #000 91%, transparent 100%);
+}
+.marquee-track{
+  --k: 1;
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: marquee-scroll 70s linear infinite;
+  will-change: transform;
+}
+.marquee-track li{
+  flex: none;
+  display: flex;
+  align-items: center;
+  height: 100px;
+  padding: 0 clamp(26px, 4.2vw, 58px);
+}
+.marquee-track img{
+  height: calc(var(--h) * 1px * var(--k));
+  width: auto;
+  max-width: none;
+  opacity: .8;
+  transition: opacity .3s ease;
+}
+.marquee-track li:hover img{ opacity: 1; }
+.marquee:hover .marquee-track{ animation-play-state: paused; }
+
+@keyframes marquee-scroll{
+  from{ transform: translateX(0); }
+  to{   transform: translateX(-50%); }
+}
+
+@media (max-width:640px){
+  .partners{ padding: 48px 0 40px; }
+  .partners-head h2{ font-size: 24px; }
+  .marquee-track{ --k: .78; animation-duration: 55s; }
+  .marquee-track li{ height: 80px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  .marquee{ -webkit-mask-image:none; mask-image:none; }
+  .marquee-track{ width:auto; flex-wrap:wrap; justify-content:center; }
+  .marquee-track li[aria-hidden="true"]{ display:none; }
+}
